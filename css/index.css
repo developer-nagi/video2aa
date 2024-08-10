@@ -148,13 +148,6 @@ video {
   display: none;
 }
 
-#picture2 {
-  top: 0;
-  left: 0;
-  z-index: 2;
-  display: none;
-}
-
 #frameCount {
   position: absolute;
   right: 10px;
