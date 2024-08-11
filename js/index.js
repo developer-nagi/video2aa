@@ -4,30 +4,30 @@ window.onload = async () => {
   const frameCountLabel = document.querySelector("#frameCount");
   const aaLabel = document.querySelector("#aaArea");
 
-  // カメラ設定
-  const constraints = {
-    audio: false,
-    video: {
-      width: 1920,
-      height: 1080,
-      deviceId: {
-        exact:
-          "44d2e79eb15793683a1869415130029beced285e224f02e50f121cb6aaa4d16a", // OBSのカメラ、人によって違う
-      },
-      // facingMode: "user", // コメントを消してdeviceIdを消して、標準カメラを利用する（width, heightを変更する必要あり）
-    },
-  };
+  // // カメラ設定
+  // const constraints = {
+  //   audio: false,
+  //   video: {
+  //     width: 1920,
+  //     height: 1080,
+  //     deviceId: {
+  //       exact:
+  //         "44d2e79eb15793683a1869415130029beced285e224f02e50f121cb6aaa4d16a", // OBSのカメラ、人によって違う
+  //     },
+  //     // facingMode: "user", // コメントを消してdeviceIdを消して、標準カメラを利用する（width, heightを変更する必要あり）
+  //   },
+  // };
 
-  // カメラ初期化
-  const stream = await navigator.mediaDevices.getUserMedia(constraints);
-  /** カメラ列挙してID調べたい場合はコメントはずす
-  const devices = await navigator.mediaDevices.enumerateDevices();
-  console.log(devices);
-  */
-  video.srcObject = stream;
-  video.onloadedmetadata = async (e) => {
-    video.play();
-  };
+  // // カメラ初期化
+  // const stream = await navigator.mediaDevices.getUserMedia(constraints);
+  // /** カメラ列挙してID調べたい場合はコメントはずす
+  // const devices = await navigator.mediaDevices.enumerateDevices();
+  // console.log(devices);
+  // */
+  // video.srcObject = stream;
+  // video.onloadedmetadata = async (e) => {
+  //   video.play();
+  // };
 
   const colorset = "隆保和田だずやすかたか＄？｜・￥＝～：。、　"; //濃淡用テキスト
   let viewRange = 9; // Viewの初期サイズ
@@ -39,9 +39,21 @@ window.onload = async () => {
     if (viewRange === 9) {
       aaLabel.style.zoom = "116%";
     } else if (viewRange === 7) {
-      aaLabel.style.zoom = "135%";
+      aaLabel.style.zoom = "141%";
     } else if (viewRange === 5) {
       aaLabel.style.zoom = "200%";
+    } else if (viewRange === 11) {
+      aaLabel.style.zoom = "106%";
+    } else if (viewRange === 17) {
+      aaLabel.style.zoom = "88%";
+    } else if (viewRange === 19) {
+      aaLabel.style.zoom = "90%";
+    } else if (viewRange === 21) {
+      aaLabel.style.zoom = "90%";
+    } else if (viewRange === 23) {
+      aaLabel.style.zoom = "91%";
+    } else if (viewRange === 25) {
+      aaLabel.style.zoom = "90%";
     } else {
       aaLabel.style.zoom = "100%";
     }
@@ -113,6 +125,15 @@ window.onload = async () => {
   document.getElementById("viewRange").onchange = (e) => {
     viewRange = Number(e.target.value);
     validChange(); //フォントサイズが変わった時の処理を呼び出し
+  };
+
+  document.getElementById("start").onclick = () => {
+    video.play();
+  };
+
+  document.getElementById("stop").onclick = () => {
+    video.pause();
+    video.currentTime = 0;
   };
 
   requestAnimationFrame(view); // メイン描画処理開始

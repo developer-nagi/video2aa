@@ -136,7 +136,7 @@ video {
 
 #camera {
   bottom: 20px;
-  right: 0;
+  left: 1250px;
   z-index: 98;
   background-color: white;
 }
@@ -150,8 +150,8 @@ video {
 
 #frameCount {
   position: absolute;
-  right: 10px;
-  top: 0;
+  left: 20px;
+  bottom: 85px;
   color: green;
   font-size: 50px;
   z-index: 99;
@@ -160,8 +160,8 @@ video {
 #aaArea {
   font-family: "MS Gothic", "MS UI Gothic", "Meiryo UI", "Meiryo", "Arial";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 10px;
+  left: 10px;
   color: black;
   background-color: white;
   line-height: 1;
@@ -169,9 +169,24 @@ video {
   z-index: 4;
 }
 
-#viewRange {
+#ctrlArea {
   position: absolute;
   bottom: 10px;
   left: 20px;
+}
+
+#ctrlArea button {
+  border: 1px solid gray;
+  padding: 2px 5px;
+  background-color: black;
+}
+
+#ctrlArea button:focus {
+  background-color: lightgray;
+  color: black;
+}
+
+#fontSizeLabel {
+  margin-left: 10px;
 }
 
